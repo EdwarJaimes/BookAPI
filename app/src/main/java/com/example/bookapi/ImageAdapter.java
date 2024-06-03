@@ -15,8 +15,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
-
-    // URLs de las imágenes
     private ArrayList<Book> imageUrls;
     private Context context;
 

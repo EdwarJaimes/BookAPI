@@ -23,6 +23,7 @@
         </activity>
         <activity
             android:name=".landingPage"
+            android:theme="@style/LandingPageTheme"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

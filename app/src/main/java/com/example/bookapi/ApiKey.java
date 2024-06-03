@@ -1,5 +1,5 @@
 package com.example.bookapi;
-public class Post {
+public class ApiKey {
     private String appkey;
 
     public String getAppkey() {
