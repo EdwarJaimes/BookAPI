@@ -4,4 +4,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="menu">menu</string>
+    <string name="LOGIN">LOGIN</string>
+    <string name="user">User</string>
+    <string name="Pass">Password</string>
 </resources>

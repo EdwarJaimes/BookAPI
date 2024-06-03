@@ -12,5 +12,8 @@
     <color name="darkgray">#FF404040</color>
     <color name="accent">#5a51c0</color>
     <color name="grayclear">#757575</color>
+    <color name="oreangelight">#FDE0D4</color>
+    <color name="oreange">#F24C1F</color>
+    <color name="oreangeAccent">#F1AA8A</color>
 
 </resources>
