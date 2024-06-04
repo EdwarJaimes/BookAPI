@@ -81,14 +81,7 @@ public class LandingPageActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         txtTitle.setText(": "+ o_u);
 
-        landingPageViewModel.getBookListState().observe(this, new Observer<List<Book>>() {
-            @Override
-            public void onChanged(List<Book> books) {
-
-                    adapter.adicionarListaLibro((ArrayList<Book>) books);
-
-            }
-        });
+        landingPageViewModel.getBookListState().observe(this, books -> adapter.adicionarListaLibro((ArrayList<Book>) books));
     }
 
     private void dropAllSessions(String o_u, String sesskey) {

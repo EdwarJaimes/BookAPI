@@ -54,7 +54,7 @@ public class LoginPageViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<ApiKey> call, Throwable t) {
-                //Toast.makeText(LoginPageActivity.this, "Fallo en la petición: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e("Error", t.getMessage());
             }
         });
     }
