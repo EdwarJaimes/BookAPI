@@ -1,36 +1,27 @@
 package com.example.bookapi.viewModel;
 
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.bookapi.ApiKey;
+import com.example.bookapi.LoginState;
+import com.example.bookapi.model.ApiKey;
 import com.example.bookapi.ApiService;
-import com.example.bookapi.Book;
-import com.example.bookapi.LandingPageActivity;
-import com.example.bookapi.LoginPageActivity;
-import com.example.bookapi.OauthKeyResponse;
+import com.example.bookapi.model.OauthKeyResponse;
 import com.example.bookapi.RetrofitClient;
-import com.example.bookapi.SesskeyResponse;
-
-import java.sql.SQLOutput;
-import java.util.List;
+import com.example.bookapi.model.SesskeyResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPageViewModel extends ViewModel {
-    private ApiService apiService;
 
     private MutableLiveData<LoginState> loginState = new MutableLiveData<>();
 
     public LoginPageViewModel(String email, String password) {
-        //this.apiService = apiService;
         makeApiCall(email, password);
     }
     public LiveData<LoginState> getLoginState() {
@@ -105,14 +96,6 @@ public class LoginPageViewModel extends ViewModel {
 
                     loginState.setValue(new LoginState.Success(o_u, sesskey));
 
-//                    Intent intent = new Intent(LoginPageViewModel.this, LandingPageActivity.class);
-//
-//                    intent.putExtra("oauthkey", oauthkey);
-//                    intent.putExtra("o_u", o_u);
-//                    intent.putExtra("sesskey", sesskey);
-//                    startActivity(intent);
-
-                    //Toast.makeText(Login.this, "Sesskey: " + sesskeyResponse.getSesskey(), Toast.LENGTH_SHORT).show();
                 } else {
                     //Toast.makeText(LoginPageActivity.this, "Error en la respuesta del sesskey.", Toast.LENGTH_SHORT).show();
                 }

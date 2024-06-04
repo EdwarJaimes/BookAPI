@@ -1,4 +1,4 @@
-package com.example.bookapi.viewModel;
+package com.example.bookapi;
 
 public class LoginState {
     public static final class Loading extends LoginState {}

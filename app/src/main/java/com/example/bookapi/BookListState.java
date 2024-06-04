@@ -1,5 +1,7 @@
 package com.example.bookapi;
 
+import com.example.bookapi.model.Book;
+
 import java.util.List;
 
 public class BookListState {

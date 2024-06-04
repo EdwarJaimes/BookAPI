@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.bookapi.ApiService;
-import com.example.bookapi.Book;
+import com.example.bookapi.model.Book;
 import com.example.bookapi.BookListState;
-import com.example.bookapi.GetBooksResponse;
+import com.example.bookapi.model.GetBooksResponse;
 import com.example.bookapi.RetrofitClient;
 
 import java.util.List;
@@ -17,7 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LandingPageViewModel extends ViewModel {
-    private ApiService apiService;
     private MutableLiveData<List<Book>> bookListState = new MutableLiveData<>();
 
     public LandingPageViewModel(String o_u, String sesskey) {
@@ -40,7 +39,6 @@ public class LandingPageViewModel extends ViewModel {
                     List<Book> books = getBooksResponse.allBooks.books;
                     bookListState.setValue(new BookListState.Success(books).getBooks());
 
-
                 } else {
                     System.out.println("Error al obtener los libros: " + response.code());
                 }
@@ -52,5 +50,4 @@ public class LandingPageViewModel extends ViewModel {
             }
         });
     }
-
 }

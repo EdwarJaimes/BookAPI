@@ -1,4 +1,4 @@
-package com.example.bookapi;
+package com.example.bookapi.model;
 
 import java.util.List;
 

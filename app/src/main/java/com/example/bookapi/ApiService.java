@@ -1,5 +1,11 @@
 package com.example.bookapi;
 
+import com.example.bookapi.model.ApiKey;
+import com.example.bookapi.model.DropAllSessions;
+import com.example.bookapi.model.GetBooksResponse;
+import com.example.bookapi.model.OauthKeyResponse;
+import com.example.bookapi.model.SesskeyResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

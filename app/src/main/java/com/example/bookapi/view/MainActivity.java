@@ -1,8 +1,10 @@
-package com.example.bookapi;
+package com.example.bookapi.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bookapi.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.bookapi;
+package com.example.bookapi.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +15,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.bookapi.R;
 import com.example.bookapi.viewModel.LoginPageViewModel;
-import com.example.bookapi.viewModel.LoginState;
+import com.example.bookapi.LoginState;
 
 public class LoginPageActivity extends AppCompatActivity {
     LoginPageViewModel loginPageViewModel;
@@ -35,8 +36,6 @@ public class LoginPageActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.edtPassword);
         Button login = findViewById(R.id.btnLogin);
 
-
-        //login.setOnClickListener(view -> makeApiCall(email.getText().toString(), password.getText().toString()));
         ViewModelProvider.Factory factory = new ViewModelProvider.Factory() {
             @Override
             public <T extends ViewModel> T create(Class<T> modelClass) {
@@ -47,7 +46,6 @@ public class LoginPageActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //loginPageViewModel = new ViewModelProvider(this, factory).get(LoginPageViewModel.class);
                 loginPageViewModel = new ViewModelProvider(LoginPageActivity.this, factory).get(LoginPageViewModel.class);
 
                 loginPageViewModel.getLoginState().observe(LoginPageActivity.this, new Observer<LoginState>() {

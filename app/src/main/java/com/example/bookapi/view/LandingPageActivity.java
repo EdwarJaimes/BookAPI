@@ -1,4 +1,4 @@
-package com.example.bookapi;
+package com.example.bookapi.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,6 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookapi.ApiService;
+import com.example.bookapi.model.Book;
+import com.example.bookapi.model.DropAllSessions;
+import com.example.bookapi.R;
+import com.example.bookapi.RetrofitClient;
 import com.example.bookapi.viewModel.LandingPageViewModel;
 
 import java.util.ArrayList;
@@ -33,7 +38,7 @@ public class LandingPageActivity extends AppCompatActivity {
     String sesskey;
     String oauthkey;
     public LandingPageViewModel landingPageViewModel;
-    private ImageAdapter adapter;
+    private BookAdapter adapter;
     Toolbar toolbar;
 
 
@@ -69,14 +74,12 @@ public class LandingPageActivity extends AppCompatActivity {
         landingPageViewModel = new ViewModelProvider(this, factory).get(LandingPageViewModel.class);
 
         recyclerView = findViewById(R.id.recyclerViewLanding);
-        adapter = new ImageAdapter(this);
+        adapter = new BookAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
         txtTitle.setText(": "+ o_u);
-
-        //bntMenu.setOnClickListener(view -> dropAllSessions(o_u, sesskey));
 
         landingPageViewModel.getBookListState().observe(this, new Observer<List<Book>>() {
             @Override
@@ -86,35 +89,8 @@ public class LandingPageActivity extends AppCompatActivity {
 
             }
         });
-
-
-        //makeGetAllBooks(o_u, sesskey);
     }
 
-//    private void makeGetAllBooks(String o_u, String oauthkey) {
-//        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
-//        Call<GetBooksResponse> call = apiService.getAllBooks(o_u, o_u, oauthkey);
-//        call.enqueue(new Callback<GetBooksResponse>() {
-//            @Override
-//            public void onResponse(Call<GetBooksResponse> call, Response<GetBooksResponse> response) {
-//                if (response.isSuccessful()) {
-//                    GetBooksResponse getBooksResponse = response.body();
-//
-//                    List<Book> books = getBooksResponse.allBooks.books;
-//
-//                    adapter.adicionarListaLibro((ArrayList<Book>) books);
-//
-//                } else {
-//                    Toast.makeText(landingPage.this, "Error en la respuesta del getallbooks.", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GetBooksResponse> call, Throwable t) {
-//                Toast.makeText(landingPage.this, "Fallo en la petición del getallbooks: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
     private void dropAllSessions(String o_u, String sesskey) {
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         Call<DropAllSessions> call = apiService.dropAllSessions(o_u, sesskey);

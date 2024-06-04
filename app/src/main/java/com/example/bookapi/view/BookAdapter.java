@@ -1,4 +1,4 @@
-package com.example.bookapi;
+package com.example.bookapi.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,14 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.bookapi.R;
+import com.example.bookapi.model.Book;
 
 import java.util.ArrayList;
 
-public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolder> {
     private ArrayList<Book> imageUrls;
     private Context context;
 
-    public ImageAdapter(Context context) {
+    public BookAdapter(Context context) {
         this.context = context;
         imageUrls = new ArrayList<>();
     }
