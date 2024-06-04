@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".landingPage"
+            android:name=".LandingPageActivity"
             android:theme="@style/LandingPageTheme"
             android:exported="false" />
         <activity
